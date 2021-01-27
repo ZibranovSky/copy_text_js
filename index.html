@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text Generator Copy</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="textgen">
+	<textarea id="processtxt" class="form-control"></textarea>
+	<button class="btn-process" onclick="processing()">GENERATE</button>
+	
+
+	<textarea class="form-control" disabled=""  id="copytxt"></textarea>
+	<button class="btn-copy" onclick="copying()">COPY</button>
+	
+	<span class="message" id="message"></span>
+	<script type="text/javascript">
+		function processing()
+		{
+			var processtxt = document.getElementById('processtxt');
+			var copytxt = document.getElementById('copytxt');
+
+			copytxt.innerHTML = processtxt.value;
+			
+				
+		}
+
+		function copying()
+		{
+			var copytxt = document.getElementById('copytxt');
+			var message = document.getElementById('message');
+
+			copytxt.disabled = false;
+			copytxt.select();
+			copytxt.setSelectionRange(0, 99999);
+			document.execCommand("copy");
+
+			message.innerHTML = "Copied!";
+
+		}
+		
+	</script>
+</div>
+
+
+</body>
+</html>
+
